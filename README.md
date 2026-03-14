@@ -14,14 +14,16 @@ SpeakEasy is a prototype English coaching application built for a hackathon. It 
 ## Screenshots
 
 ### Main Landing Page (English)
-![Main Landing Page (English)](public/docs/landing_page_english.png)
+![Main Landing Page (English)](public/docs/media1.png)
 
 ### Main Landing Page (Rohingya Translation)
-![Main Landing Page (Rohingya)](public/docs/landing_page_rohingya.png)
+![Main Landing Page (Rohingya)](public/docs/media2.png)
 
-### Split-Screen Speaking Assessment
-*Featuring localized Audio Playback and on-demand translation toggling.*
-![Assessment Page](public/docs/assessment_page.png)
+### Speaking Assessment Start
+![Assessment Start](public/docs/media3.png)
+
+### Speaking Assessment Active
+![Assessment Active](public/docs/media4.png)
 
 ## Tech Stack
 - **Framework:** Next.js (App Router) & React
