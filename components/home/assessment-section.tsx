@@ -1,4 +1,6 @@
+import { useState } from "react";
 import type { AssessmentQuestion, TranslationContent } from "@/types/app";
+import { translations } from "@/data/translations";
 
 interface AssessmentSectionProps {
   t: TranslationContent;
@@ -21,11 +23,17 @@ export function AssessmentSection({
   onReset,
   fullScreen = false,
 }: AssessmentSectionProps) {
+  const [localRohingyaToggle, setLocalRohingyaToggle] = useState(false);
+
+  // Derive the question to display based on the local toggle
+  const displayQuestion = localRohingyaToggle
+    ? translations["RO"].assessments[Math.min(assessmentStep, translations["RO"].assessments.length - 1)]
+    : activeQuestion;
+
   return (
     <div
-      className={`rounded-[2rem] border border-slate-200/70 bg-white/80 p-5 shadow-[0_18px_60px_rgba(148,113,73,0.12)] backdrop-blur sm:p-6 ${
-        fullScreen ? "h-full" : ""
-      }`}
+      className={`rounded-[2rem] border border-slate-200/70 bg-white/80 p-5 shadow-[0_18px_60px_rgba(148,113,73,0.12)] backdrop-blur sm:p-6 ${fullScreen ? "h-full" : ""
+        }`}
     >
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
@@ -38,9 +46,9 @@ export function AssessmentSection({
           {assessmentComplete
             ? t.assessmentComplete
             : t.questionFlow(
-                Math.min(assessmentStep + 1, t.assessments.length),
-                t.assessments.length,
-              )}
+              Math.min(assessmentStep + 1, t.assessments.length),
+              t.assessments.length,
+            )}
         </div>
       </div>
 
@@ -57,16 +65,28 @@ export function AssessmentSection({
           ) : (
             <div className="mt-6 space-y-4">
               <div className="inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/80">
-                {activeQuestion.level}
+                {displayQuestion.level}
               </div>
               <h3 className="text-2xl font-bold leading-tight">
-                {assessmentComplete ? t.readyJourney : activeQuestion.prompt}
+                {assessmentComplete ? t.readyJourney : displayQuestion.prompt}
               </h3>
               <p className="rounded-2xl bg-white/5 p-4 text-sm leading-6 text-white/75">
                 {assessmentComplete
                   ? t.estLevelFull
-                  : t.promptHint(activeQuestion.hint)}
+                  : t.promptHint(displayQuestion.hint)}
               </p>
+
+              {!assessmentComplete && (
+                <button
+                  type="button"
+                  onClick={() => setLocalRohingyaToggle(!localRohingyaToggle)}
+                  className="mt-2 text-sm text-amber-300 underline hover:text-amber-400 transition"
+                >
+                  {localRohingyaToggle
+                    ? "Translate back to English"
+                    : "Can't understand? Tap to translate language into Rohingya"}
+                </button>
+              )}
             </div>
           )}
         </div>
