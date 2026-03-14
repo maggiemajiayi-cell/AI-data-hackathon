@@ -7,7 +7,7 @@ import { GoalTrackingSection } from "@/components/home/goal-tracking-section";
 import { QuizSection } from "@/components/home/quiz-section";
 import { ScenarioPracticeSection } from "@/components/home/scenario-practice-section";
 import { VocabularySection } from "@/components/home/vocabulary-section";
-import { VoiceOutputSection } from "@/components/home/voice-output-section";
+import { ResponseAnalysisSection } from "@/components/home/response-analysis-section";
 import type {
   ConversationVocabularyItem,
   DailyCheck,
@@ -138,7 +138,7 @@ export function DashboardScreen({
                     <VocabularySection t={t} lang={lang} vocabulary={vocabulary} />
                   </div>
                   <div className="min-h-0 overflow-auto rounded-[1.5rem]">
-                    <VoiceOutputSection t={t} />
+                    <ResponseAnalysisSection t={t} />
                   </div>
                 </div>
               </div>
@@ -214,11 +214,10 @@ function TabButton({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-2xl px-4 py-3 text-left text-sm font-semibold transition ${
-        active
+      className={`rounded-2xl px-4 py-3 text-left text-sm font-semibold transition ${active
           ? "bg-slate-950 text-white"
           : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-      }`}
+        }`}
     >
       {label}
     </button>

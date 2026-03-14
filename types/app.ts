@@ -92,9 +92,15 @@ export interface TranslationContent {
   tonightRev: string;
   sec7Tag: string;
   sec7Title: string;
-  btnDemo: string;
-  btnDemoDesc: string;
-  playAudio: string;
+  analysisStrengths: string;
+  analysisStr1: string;
+  analysisStr2: string;
+  analysisTips: string;
+  analysisTip1: string;
+  analysisTip2: string;
+  analysisVocab: string;
+  analysisVocab1: string;
+  analysisVocab2: string;
   sec2Tag: string;
   sec2Title: string;
   convSetup: string;
@@ -123,6 +129,14 @@ export interface TranslationContent {
   words: Record<WordKey, WordMeaning>;
   scenario: Record<Role, ScenarioCopy>;
   quizContent: QuizChoice[];
+  voiceInput: string;
+  startRecording: string;
+  stopRecording: string;
+  useVoiceReply: string;
+  useTextReply: string;
+  voiceReplyLabel: string;
+  textReplyLabel: string;
+  listeningMsg: string;
 }
 
 export interface DailyCheck {
