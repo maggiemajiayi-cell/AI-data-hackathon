@@ -25,7 +25,7 @@ export function VocabularySection({
           >
             <div className="relative h-40 w-full overflow-hidden bg-slate-100">
               <img
-                src={`/vocab/${item.word}.png`}
+                src={`/AI-data-hackathon/vocab/${item.word}.png`}
                 alt={item.word}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 onError={(e) => {
