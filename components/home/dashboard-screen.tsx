@@ -143,7 +143,7 @@ export function DashboardScreen({
                 </div>
                 <div className="grid gap-3 xl:grid-rows-[1fr_0.9fr] lg:min-h-0">
                   <div className="rounded-[1.5rem] lg:min-h-0 lg:overflow-auto">
-                    <VocabularySection t={t} lang={lang} vocabulary={vocabulary} />
+                    <VocabularySection t={t} lang={lang} vocabulary={vocabulary} hasSubmitted={hasSubmitted} />
                   </div>
                   <div className="rounded-[1.5rem] lg:min-h-0 lg:overflow-auto">
                     <ResponseAnalysisSection t={t} hasSubmitted={hasSubmitted} />
@@ -222,11 +222,10 @@ function TabButton({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-2xl px-3 py-3 text-left text-xs font-semibold transition sm:px-4 sm:text-sm ${
-        active
-          ? "bg-slate-950 text-white"
-          : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-      }`}
+      className={`rounded-2xl px-3 py-3 text-left text-xs font-semibold transition sm:px-4 sm:text-sm ${active
+        ? "bg-slate-950 text-white"
+        : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+        }`}
     >
       {label}
     </button>

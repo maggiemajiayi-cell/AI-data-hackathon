@@ -5,8 +5,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/AI-data-hackathon',
-  assetPrefix: '/AI-data-hackathon/',
+  // basePath: '/AI-data-hackathon',
+  // assetPrefix: '/AI-data-hackathon/',
 };
 
 export default nextConfig;
