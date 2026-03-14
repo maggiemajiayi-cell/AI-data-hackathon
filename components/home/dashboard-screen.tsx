@@ -223,8 +223,8 @@ function TabButton({
       type="button"
       onClick={onClick}
       className={`rounded-2xl px-3 py-3 text-left text-xs font-semibold transition sm:px-4 sm:text-sm ${active
-          ? "bg-slate-950 text-white"
-          : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+        ? "bg-slate-950 text-white"
+        : "bg-slate-100 text-slate-700 hover:bg-slate-200"
         }`}
     >
       {label}
