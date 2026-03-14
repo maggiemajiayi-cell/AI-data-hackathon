@@ -59,7 +59,7 @@ export default function Home() {
   };
 
   return (
-    <main className="h-screen overflow-hidden bg-[radial-gradient(circle_at_top,#fff5df,0%,#f9efe1,35%,#f4ead9,55%,#efe3ce,100%)] text-slate-900">
+    <main className="h-[100dvh] overflow-x-hidden bg-[radial-gradient(circle_at_top,#fff5df,0%,#f9efe1,35%,#f4ead9,55%,#efe3ce,100%)] text-slate-900">
       {screen === "landing" && (
         <LandingScreen
           lang={lang}
@@ -70,7 +70,7 @@ export default function Home() {
       )}
 
       {screen === "assessment" && (
-        <section className="mx-auto flex h-screen w-full max-w-7xl items-center px-4 py-4 sm:px-6">
+        <section className="mx-auto flex h-[100dvh] w-full max-w-7xl items-center overflow-y-auto px-4 py-4 sm:overflow-hidden sm:px-6">
           <AssessmentSection
             t={t}
             assessmentStarted={assessmentStarted}
