@@ -11,6 +11,7 @@ interface ScenarioPracticeSectionProps {
   typedMessage: string;
   onRoleChange: (role: Role) => void;
   onTypedMessageChange: (value: string) => void;
+  onSubmit: () => void;
 }
 
 export function ScenarioPracticeSection({
@@ -19,6 +20,7 @@ export function ScenarioPracticeSection({
   typedMessage,
   onRoleChange,
   onTypedMessageChange,
+  onSubmit,
 }: ScenarioPracticeSectionProps) {
   const scenario = t.scenario[role];
   const [showAiResponse, setShowAiResponse] = useState(false);
@@ -51,6 +53,7 @@ export function ScenarioPracticeSection({
 
   const handleSubmit = () => {
     setShowAiResponse(true);
+    onSubmit();
   };
 
   return (
@@ -69,8 +72,8 @@ export function ScenarioPracticeSection({
               type="button"
               onClick={() => onRoleChange(option)}
               className={`rounded-full px-4 py-2 text-sm font-semibold transition ${role === option
-                  ? "bg-slate-950 text-white"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                ? "bg-slate-950 text-white"
+                : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                 }`}
             >
               {option}
@@ -117,8 +120,8 @@ export function ScenarioPracticeSection({
                     onClick={handleStartRecording}
                     disabled={isListening}
                     className={`flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition ${isListening
-                        ? "bg-red-500 text-white"
-                        : "bg-blue-500 text-white hover:bg-blue-600"
+                      ? "bg-red-500 text-white"
+                      : "bg-blue-500 text-white hover:bg-blue-600"
                       }`}
                   >
                     {isListening ? `${t.listeningMsg}` : t.startRecording}
@@ -153,8 +156,8 @@ export function ScenarioPracticeSection({
               onChange={(event) => !isListening && onTypedMessageChange(event.target.value)}
               disabled={isListening}
               className={`min-h-32 w-full rounded-3xl rounded-br-md border-2 ${isListening
-                  ? "border-blue-400 bg-blue-50"
-                  : "border-amber-200 bg-amber-50"
+                ? "border-blue-400 bg-blue-50"
+                : "border-amber-200 bg-amber-50"
                 } px-4 py-4 text-sm leading-6 text-slate-800 outline-none placeholder:text-slate-400 ${isListening ? "opacity-70 cursor-not-allowed" : "focus:border-amber-400"
                 }`}
               placeholder={isListening ? "Listening... speak now" : t.placeholderType}

@@ -5,9 +5,9 @@ import { useState } from "react";
 import { DailyCheckInSection } from "@/components/home/daily-checkin-section";
 import { GoalTrackingSection } from "@/components/home/goal-tracking-section";
 import { QuizSection } from "@/components/home/quiz-section";
+import { ResponseAnalysisSection } from "@/components/home/response-analysis-section";
 import { ScenarioPracticeSection } from "@/components/home/scenario-practice-section";
 import { VocabularySection } from "@/components/home/vocabulary-section";
-import { ResponseAnalysisSection } from "@/components/home/response-analysis-section";
 import type {
   ConversationVocabularyItem,
   DailyCheck,
@@ -51,6 +51,7 @@ export function DashboardScreen({
   onNextQuiz,
 }: DashboardScreenProps) {
   const [activeTab, setActiveTab] = useState<DashboardTab>("practice");
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   return (
     <section className="flex h-[100dvh] overflow-y-auto px-3 py-3 lg:overflow-hidden sm:px-4 sm:py-4">
@@ -77,11 +78,15 @@ export function DashboardScreen({
           <div className="mt-4 grid gap-2 sm:mt-5 sm:gap-3">
             <div className="rounded-2xl bg-amber-50 px-3 py-3 sm:px-4">
               <p className="text-xs text-slate-500 sm:text-sm">{t.estLevel}</p>
-              <p className="mt-1 text-xl font-bold text-slate-900 sm:text-2xl">{t.estLevelVal}</p>
+              <p className="mt-1 text-xl font-bold text-slate-900 sm:text-2xl">
+                {t.estLevelVal}
+              </p>
             </div>
             <div className="rounded-2xl bg-emerald-50 px-3 py-3 sm:px-4">
               <p className="text-xs text-slate-500 sm:text-sm">{t.streak}</p>
-              <p className="mt-1 text-xl font-bold text-slate-900 sm:text-2xl">{t.streakVal}</p>
+              <p className="mt-1 text-xl font-bold text-slate-900 sm:text-2xl">
+                {t.streakVal}
+              </p>
             </div>
             <div className="rounded-2xl bg-slate-950 px-3 py-3 text-white sm:px-4">
               <p className="text-xs text-white/60 sm:text-sm">{t.focus}</p>
@@ -116,7 +121,9 @@ export function DashboardScreen({
             <p className="text-xs font-semibold uppercase tracking-[0.2em] sm:text-sm sm:tracking-[0.25em]">
               {t.elTitle}
             </p>
-            <p className="mt-2 text-xs leading-5 sm:text-sm sm:leading-6">{t.elDesc}</p>
+            <p className="mt-2 text-xs leading-5 sm:text-sm sm:leading-6">
+              {t.elDesc}
+            </p>
           </div>
         </aside>
 
@@ -131,6 +138,7 @@ export function DashboardScreen({
                     typedMessage={typedMessage}
                     onRoleChange={onRoleChange}
                     onTypedMessageChange={onTypedMessageChange}
+                    onSubmit={() => setHasSubmitted(true)}
                   />
                 </div>
                 <div className="grid gap-3 xl:grid-rows-[1fr_0.9fr] lg:min-h-0">
@@ -138,7 +146,7 @@ export function DashboardScreen({
                     <VocabularySection t={t} lang={lang} vocabulary={vocabulary} />
                   </div>
                   <div className="rounded-[1.5rem] lg:min-h-0 lg:overflow-auto">
-                    <ResponseAnalysisSection t={t} />
+                    <ResponseAnalysisSection t={t} hasSubmitted={hasSubmitted} />
                   </div>
                 </div>
               </div>
@@ -218,7 +226,7 @@ function TabButton({
         active
           ? "bg-slate-950 text-white"
           : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-        }`}
+      }`}
     >
       {label}
     </button>
