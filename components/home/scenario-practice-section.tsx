@@ -25,7 +25,7 @@ export function ScenarioPracticeSection({
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">
             {t.sec2Tag}
           </p>
-          <h2 className="mt-2 text-3xl font-bold">{t.sec2Title}</h2>
+          <h2 className="mt-2 text-2xl font-bold sm:text-3xl">{t.sec2Title}</h2>
         </div>
         <div className="flex flex-wrap gap-2">
           {roleOptions.map((option) => (
@@ -50,7 +50,7 @@ export function ScenarioPracticeSection({
           <p className="text-xs uppercase tracking-[0.25em] text-amber-700">
             {t.convSetup}
           </p>
-          <h3 className="mt-4 text-2xl font-bold">{scenario.label}</h3>
+          <h3 className="mt-4 text-xl font-bold sm:text-2xl">{scenario.label}</h3>
           <p className="mt-3 text-sm leading-6 text-slate-700">{scenario.opening}</p>
           <div className="mt-4 rounded-2xl bg-white/80 p-4 text-sm leading-6 text-slate-700">
             <p className="font-semibold text-slate-900">{t.aiCoachStyle}</p>

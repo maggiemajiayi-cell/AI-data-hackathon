@@ -16,7 +16,7 @@ export function DailyCheckInSection({
       <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">
         {t.sec5Tag}
       </p>
-      <h2 className="mt-2 text-3xl font-bold">{t.sec5Title}</h2>
+      <h2 className="mt-2 text-2xl font-bold sm:text-3xl">{t.sec5Title}</h2>
 
       <div className="mt-6 grid grid-cols-7 gap-2">
         {dailyChecks.map((item) => (

@@ -16,7 +16,7 @@ export function VocabularySection({
       <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">
         {t.sec4Tag}
       </p>
-      <h2 className="mt-2 text-3xl font-bold">{t.sec4Title}</h2>
+      <h2 className="mt-2 text-2xl font-bold sm:text-3xl">{t.sec4Title}</h2>
       <div className="mt-5 grid gap-3">
         {vocabulary.map((item) => (
           <div
@@ -25,7 +25,7 @@ export function VocabularySection({
           >
             <div className="flex items-center justify-between gap-3">
               <div>
-                <p className="text-xl font-bold">{item.word}</p>
+                <p className="text-lg font-bold sm:text-xl">{item.word}</p>
                 <p className="text-sm text-slate-600">
                   {lang === "EN" ? item.meaning : item.rohingya}
                 </p>

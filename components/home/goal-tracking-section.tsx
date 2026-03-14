@@ -11,7 +11,7 @@ export function GoalTrackingSection({ t }: GoalTrackingSectionProps) {
       <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">
         {t.sec8Tag}
       </p>
-      <h2 className="mt-2 text-3xl font-bold">{t.sec8Title}</h2>
+      <h2 className="mt-2 text-2xl font-bold sm:text-3xl">{t.sec8Title}</h2>
       <div className="mt-5 space-y-4">
         <div>
           <div className="flex items-center justify-between text-sm font-medium text-slate-700">
