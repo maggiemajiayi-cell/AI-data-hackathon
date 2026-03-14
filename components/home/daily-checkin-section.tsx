@@ -20,18 +20,18 @@ export function DailyCheckInSection({
 
       <div className="mt-6 grid grid-cols-7 gap-2">
         {dailyChecks.map((item) => {
-          const isSunday = item.day === "Sun";
+          const isSaturday = item.day === "Sat";
           return (
             <div
               key={item.day}
-              className={`flex flex-col items-center rounded-2xl p-2 transition-all ${isSunday
-                  ? "bg-emerald-600 text-white shadow-lg ring-4 ring-emerald-100 scale-105"
-                  : item.done
-                    ? "bg-emerald-50 text-emerald-700 border border-emerald-100"
-                    : "bg-slate-50 text-slate-400 border border-slate-100"
+              className={`flex flex-col items-center rounded-2xl p-2 transition-all ${isSaturday
+                ? "bg-amber-500 text-white shadow-lg ring-4 ring-amber-100 scale-105"
+                : item.done
+                  ? "bg-white text-emerald-700 border border-slate-200 shadow-sm"
+                  : "bg-white text-slate-400 border border-slate-100"
                 }`}
             >
-              <span className={`text-[10px] font-bold uppercase tracking-wider ${isSunday ? "text-emerald-100" : "text-slate-500"}`}>
+              <span className={`text-[10px] font-bold uppercase tracking-wider ${isSaturday ? "text-amber-100" : "text-slate-500"}`}>
                 {item.day}
               </span>
               <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full">
