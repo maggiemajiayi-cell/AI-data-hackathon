@@ -51,6 +51,13 @@ export function DashboardScreen({
   onNextQuiz,
 }: DashboardScreenProps) {
   const [activeTab, setActiveTab] = useState<DashboardTab>("practice");
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+
+  // Reset submission state when role changes
+  const handleRoleChangeWrapper = (newRole: Role) => {
+    setHasSubmitted(false);
+    onRoleChange(newRole);
+  };
 
   return (
     <section className="flex h-screen overflow-hidden px-3 py-3 sm:px-4 sm:py-4">
@@ -129,8 +136,9 @@ export function DashboardScreen({
                     t={t}
                     role={role}
                     typedMessage={typedMessage}
-                    onRoleChange={onRoleChange}
+                    onRoleChange={handleRoleChangeWrapper}
                     onTypedMessageChange={onTypedMessageChange}
+                    onSubmit={() => setHasSubmitted(true)}
                   />
                 </div>
                 <div className="grid min-h-0 gap-3 xl:grid-rows-[1fr_0.9fr]">
@@ -138,7 +146,7 @@ export function DashboardScreen({
                     <VocabularySection t={t} lang={lang} vocabulary={vocabulary} />
                   </div>
                   <div className="min-h-0 overflow-auto rounded-[1.5rem]">
-                    <ResponseAnalysisSection t={t} />
+                    <ResponseAnalysisSection t={t} hasSubmitted={hasSubmitted} />
                   </div>
                 </div>
               </div>
@@ -215,8 +223,8 @@ function TabButton({
       type="button"
       onClick={onClick}
       className={`rounded-2xl px-4 py-3 text-left text-sm font-semibold transition ${active
-          ? "bg-slate-950 text-white"
-          : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+        ? "bg-slate-950 text-white"
+        : "bg-slate-100 text-slate-700 hover:bg-slate-200"
         }`}
     >
       {label}
