@@ -10,7 +10,7 @@ export function VoiceOutputSection({ t }: VoiceOutputSectionProps) {
       <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">
         {t.sec7Tag}
       </p>
-      <h2 className="mt-2 text-3xl font-bold">{t.sec7Title}</h2>
+      <h2 className="mt-2 text-2xl font-bold sm:text-3xl">{t.sec7Title}</h2>
 
       <div className="mt-5 rounded-[1.5rem] bg-gradient-to-br from-orange-500 to-amber-300 p-5 text-slate-950">
         <p className="text-sm font-semibold uppercase tracking-[0.2em]">{t.btnDemo}</p>
