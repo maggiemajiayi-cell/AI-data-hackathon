@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { MetricCard } from "@/components/ui/metric-card";
 import type { TranslationContent } from "@/types/app";
 
@@ -6,6 +7,47 @@ interface GoalTrackingSectionProps {
 }
 
 export function GoalTrackingSection({ t }: GoalTrackingSectionProps) {
+  const [planIndex, setPlanIndex] = useState(0);
+
+  const plans = [
+    [
+      {
+        id: 1,
+        title: "Master \"Workplace Delays\"",
+        desc: "Review the word delayed and practice the Manager role for 5 more minutes.",
+      },
+      {
+        id: 2,
+        title: "Refine Pronunciation",
+        desc: "Focus on the word appointment in casual role-plays.",
+      },
+      {
+        id: 3,
+        title: "Weekly Goal Push",
+        desc: "You are 80% there! Complete one more session tomorrow to hit your weekly target.",
+      },
+    ],
+    [
+      {
+        id: 1,
+        title: "Casual Conversations",
+        desc: "Practice using available and schedule with the Friend role.",
+      },
+      {
+        id: 2,
+        title: "Professor Protocol",
+        desc: "Try a polite opening with the Professor role focusing on being respectful.",
+      },
+      {
+        id: 3,
+        title: "Listening Skills",
+        desc: "Listen to the AI's pronunciation of shift and repeat it 3 times.",
+      },
+    ],
+  ];
+
+  const currentPlan = plans[planIndex];
+
   return (
     <section className="rounded-[2rem] border border-slate-200/70 bg-white/80 p-5 shadow-[0_18px_60px_rgba(148,113,73,0.12)] backdrop-blur sm:p-6">
       <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">
@@ -44,38 +86,32 @@ export function GoalTrackingSection({ t }: GoalTrackingSectionProps) {
           </div>
 
           <div className="mt-5 space-y-4">
-            <div className="flex items-start gap-3 rounded-2xl bg-white/60 p-3 border border-emerald-100/50">
-              <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
-                <span className="text-xs font-bold">1</span>
+            {currentPlan.map((item) => (
+              <div
+                key={item.id}
+                className="flex items-start gap-3 rounded-2xl bg-white/60 p-3 border border-emerald-100/50 transition-all duration-300 hover:bg-white"
+              >
+                <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+                  <span className="text-xs font-bold">{item.id}</span>
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-slate-800">{item.title}</p>
+                  <p className="mt-1 text-xs text-slate-600 leading-relaxed font-medium">
+                    {item.desc.split(/(delayed|appointment|available|schedule|Manager|Friend|Professor|shift)/g).map((part, i) => (
+                      <span key={i} className={/^(delayed|appointment|available|schedule|Manager|Friend|Professor|shift)$/.test(part) ? "font-semibold text-emerald-700" : ""}>
+                        {part}
+                      </span>
+                    ))}
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm font-bold text-slate-800">Master "Workplace Delays"</p>
-                <p className="mt-1 text-xs text-slate-600">Review the word <span className="font-semibold text-emerald-700">delayed</span> and practice the <span className="font-semibold">Manager</span> role for 5 more minutes.</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3 rounded-2xl bg-white/60 p-3 border border-emerald-100/50">
-              <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
-                <span className="text-xs font-bold">2</span>
-              </div>
-              <div>
-                <p className="text-sm font-bold text-slate-800">Refine Pronunciation</p>
-                <p className="mt-1 text-xs text-slate-600">Focus on the word <span className="font-semibold text-emerald-700">appointment</span> in casual role-plays.</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3 rounded-2xl bg-white/60 p-3 border border-emerald-100/50">
-              <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
-                <span className="text-xs font-bold">3</span>
-              </div>
-              <div>
-                <p className="text-sm font-bold text-slate-800">Weekly Goal Push</p>
-                <p className="mt-1 text-xs text-slate-600">You are 80% there! Complete <span className="font-semibold text-emerald-700">one more session</span> tomorrow to hit your weekly target.</p>
-              </div>
-            </div>
+            ))}
           </div>
 
-          <button className="mt-5 w-full rounded-2xl bg-slate-900 py-3 text-sm font-bold text-white transition-all hover:bg-slate-800 hover:shadow-lg active:scale-95">
+          <button
+            onClick={() => setPlanIndex((prev) => (prev === 0 ? 1 : 0))}
+            className="mt-5 w-full rounded-2xl bg-slate-900 py-3 text-sm font-bold text-white transition-all hover:bg-slate-800 hover:shadow-lg active:scale-95"
+          >
             Update My Plan
           </button>
         </div>
