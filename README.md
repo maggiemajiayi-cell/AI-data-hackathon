@@ -11,6 +11,18 @@ SpeakEasy is a prototype English coaching application built for a hackathon. It 
 - **Goal Tracking & Gamification:** Daily streaks, check-in calendars, and vocabulary quizzes encourage habit formation based on Duolingo's successful gamification loop.
 - **Full Bilingual Support (English & Rohingya):** A seamless language toggle makes the entire UI instantly comprehensible for native Rohingya speakers. 
 
+## Screenshots
+
+### Main Landing Page (English)
+![Main Landing Page (English)](public/docs/landing_page_english.png)
+
+### Main Landing Page (Rohingya Translation)
+![Main Landing Page (Rohingya)](public/docs/landing_page_rohingya.png)
+
+### Split-Screen Speaking Assessment
+*Featuring localized Audio Playback and on-demand translation toggling.*
+![Assessment Page](public/docs/assessment_page.png)
+
 ## Tech Stack
 - **Framework:** Next.js (App Router) & React
 - **Language:** TypeScript
