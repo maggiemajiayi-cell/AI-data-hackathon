@@ -60,15 +60,15 @@ export function DashboardScreen({
   };
 
   return (
-    <section className="flex h-screen overflow-hidden px-3 py-3 sm:px-4 sm:py-4">
-      <div className="mx-auto grid h-full w-full max-w-7xl gap-4 lg:grid-cols-[300px_minmax(0,1fr)]">
-        <aside className="flex min-h-0 flex-col rounded-[2rem] border border-white/60 bg-white/80 p-5 shadow-[0_24px_80px_rgba(111,78,55,0.16)] backdrop-blur">
+    <section className="flex h-[100dvh] overflow-y-auto px-3 py-3 lg:overflow-hidden sm:px-4 sm:py-4">
+      <div className="mx-auto grid h-auto min-h-full w-full max-w-7xl gap-4 lg:h-full lg:grid-cols-[300px_minmax(0,1fr)]">
+        <aside className="flex flex-col rounded-[2rem] border border-white/60 bg-white/80 p-4 shadow-[0_24px_80px_rgba(111,78,55,0.16)] backdrop-blur sm:p-5 lg:min-h-0">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-700">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-700 sm:text-sm sm:tracking-[0.3em]">
                 SpeakEasy Journey
               </p>
-              <h1 className="mt-2 text-3xl font-black tracking-tight text-slate-900">
+              <h1 className="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">
                 {t.path}
               </h1>
             </div>
@@ -81,22 +81,22 @@ export function DashboardScreen({
             </button>
           </div>
 
-          <div className="mt-5 grid gap-3">
-            <div className="rounded-2xl bg-amber-50 px-4 py-3">
-              <p className="text-sm text-slate-500">{t.estLevel}</p>
-              <p className="mt-1 text-2xl font-bold text-slate-900">{t.estLevelVal}</p>
+          <div className="mt-4 grid gap-2 sm:mt-5 sm:gap-3">
+            <div className="rounded-2xl bg-amber-50 px-3 py-3 sm:px-4">
+              <p className="text-xs text-slate-500 sm:text-sm">{t.estLevel}</p>
+              <p className="mt-1 text-xl font-bold text-slate-900 sm:text-2xl">{t.estLevelVal}</p>
             </div>
-            <div className="rounded-2xl bg-emerald-50 px-4 py-3">
-              <p className="text-sm text-slate-500">{t.streak}</p>
-              <p className="mt-1 text-2xl font-bold text-slate-900">{t.streakVal}</p>
+            <div className="rounded-2xl bg-emerald-50 px-3 py-3 sm:px-4">
+              <p className="text-xs text-slate-500 sm:text-sm">{t.streak}</p>
+              <p className="mt-1 text-xl font-bold text-slate-900 sm:text-2xl">{t.streakVal}</p>
             </div>
-            <div className="rounded-2xl bg-slate-950 px-4 py-3 text-white">
-              <p className="text-sm text-white/60">{t.focus}</p>
-              <p className="mt-1 text-2xl font-bold">{t.focusVal}</p>
+            <div className="rounded-2xl bg-slate-950 px-3 py-3 text-white sm:px-4">
+              <p className="text-xs text-white/60 sm:text-sm">{t.focus}</p>
+              <p className="mt-1 text-xl font-bold sm:text-2xl">{t.focusVal}</p>
             </div>
           </div>
 
-          <div className="mt-5 grid gap-2">
+          <div className="mt-4 grid grid-cols-2 gap-2 sm:mt-5 lg:grid-cols-1">
             <TabButton
               active={activeTab === "practice"}
               label={t.flow2}
@@ -119,19 +119,19 @@ export function DashboardScreen({
             />
           </div>
 
-          <div className="mt-auto rounded-[1.5rem] bg-gradient-to-r from-amber-300 to-orange-300 p-4 text-slate-950">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em]">
+          <div className="mt-4 rounded-[1.5rem] bg-gradient-to-r from-amber-300 to-orange-300 p-4 text-slate-950 lg:mt-auto">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] sm:text-sm sm:tracking-[0.25em]">
               {t.elTitle}
             </p>
-            <p className="mt-2 text-sm leading-6">{t.elDesc}</p>
+            <p className="mt-2 text-xs leading-5 sm:text-sm sm:leading-6">{t.elDesc}</p>
           </div>
         </aside>
 
-        <div className="min-h-0 rounded-[2rem] border border-white/60 bg-white/80 p-3 shadow-[0_24px_80px_rgba(111,78,55,0.16)] backdrop-blur sm:p-4">
-          <div className="h-full overflow-hidden rounded-[1.5rem] bg-[#fcfaf4] p-1">
+        <div className="rounded-[2rem] border border-white/60 bg-white/80 p-3 shadow-[0_24px_80px_rgba(111,78,55,0.16)] backdrop-blur sm:p-4 lg:min-h-0">
+          <div className="rounded-[1.5rem] bg-[#fcfaf4] p-1 lg:h-full lg:overflow-hidden">
             {activeTab === "practice" && (
-              <div className="grid h-full gap-3 xl:grid-cols-[1.1fr_0.9fr]">
-                <div className="min-h-0 overflow-auto rounded-[1.5rem]">
+              <div className="grid gap-3 lg:h-full xl:grid-cols-[1.1fr_0.9fr]">
+                <div className="rounded-[1.5rem] lg:min-h-0 lg:overflow-auto">
                   <ScenarioPracticeSection
                     t={t}
                     role={role}
@@ -141,11 +141,11 @@ export function DashboardScreen({
                     onSubmit={() => setHasSubmitted(true)}
                   />
                 </div>
-                <div className="grid min-h-0 gap-3 xl:grid-rows-[1fr_0.9fr]">
-                  <div className="min-h-0 overflow-auto rounded-[1.5rem]">
+                <div className="grid gap-3 xl:grid-rows-[1fr_0.9fr] lg:min-h-0">
+                  <div className="rounded-[1.5rem] lg:min-h-0 lg:overflow-auto">
                     <VocabularySection t={t} lang={lang} vocabulary={vocabulary} />
                   </div>
-                  <div className="min-h-0 overflow-auto rounded-[1.5rem]">
+                  <div className="rounded-[1.5rem] lg:min-h-0 lg:overflow-auto">
                     <ResponseAnalysisSection t={t} hasSubmitted={hasSubmitted} />
                   </div>
                 </div>
@@ -153,23 +153,23 @@ export function DashboardScreen({
             )}
 
             {activeTab === "review" && (
-              <div className="grid h-full gap-3 xl:grid-cols-[1fr_1fr]">
-                <div className="min-h-0 overflow-auto rounded-[1.5rem]">
+              <div className="grid gap-3 lg:h-full xl:grid-cols-[1fr_1fr]">
+                <div className="rounded-[1.5rem] lg:min-h-0 lg:overflow-auto">
                   <DailyCheckInSection
                     t={t}
                     dailyChecks={dailyChecks}
                     vocabulary={vocabulary}
                   />
                 </div>
-                <div className="min-h-0 overflow-auto rounded-[1.5rem]">
+                <div className="rounded-[1.5rem] lg:min-h-0 lg:overflow-auto">
                   <VocabularySection t={t} lang={lang} vocabulary={vocabulary} />
                 </div>
               </div>
             )}
 
             {activeTab === "quiz" && (
-              <div className="grid h-full gap-3 xl:grid-cols-[1fr_0.95fr]">
-                <div className="min-h-0 overflow-auto rounded-[1.5rem]">
+              <div className="grid gap-3 lg:h-full xl:grid-cols-[1fr_0.95fr]">
+                <div className="rounded-[1.5rem] lg:min-h-0 lg:overflow-auto">
                   <QuizSection
                     t={t}
                     currentQuiz={currentQuiz}
@@ -178,7 +178,7 @@ export function DashboardScreen({
                     onNext={onNextQuiz}
                   />
                 </div>
-                <div className="min-h-0 overflow-auto rounded-[1.5rem]">
+                <div className="rounded-[1.5rem] lg:min-h-0 lg:overflow-auto">
                   <DailyCheckInSection
                     t={t}
                     dailyChecks={dailyChecks}
@@ -189,11 +189,11 @@ export function DashboardScreen({
             )}
 
             {activeTab === "goals" && (
-              <div className="grid h-full gap-3 xl:grid-cols-[1fr_1fr]">
-                <div className="min-h-0 overflow-auto rounded-[1.5rem]">
+              <div className="grid gap-3 lg:h-full xl:grid-cols-[1fr_1fr]">
+                <div className="rounded-[1.5rem] lg:min-h-0 lg:overflow-auto">
                   <GoalTrackingSection t={t} />
                 </div>
-                <div className="min-h-0 overflow-auto rounded-[1.5rem]">
+                <div className="rounded-[1.5rem] lg:min-h-0 lg:overflow-auto">
                   <DailyCheckInSection
                     t={t}
                     dailyChecks={dailyChecks}
@@ -222,9 +222,9 @@ function TabButton({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-2xl px-4 py-3 text-left text-sm font-semibold transition ${active
-        ? "bg-slate-950 text-white"
-        : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+      className={`rounded-2xl px-3 py-3 text-left text-xs font-semibold transition sm:px-4 sm:text-sm ${active
+          ? "bg-slate-950 text-white"
+          : "bg-slate-100 text-slate-700 hover:bg-slate-200"
         }`}
     >
       {label}

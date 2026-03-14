@@ -2,11 +2,11 @@ import type { Language, TranslationContent } from "@/types/app";
 
 export const translations: Record<Language, TranslationContent> = {
   EN: {
-    voiceFirst: "Voice-first MVP",
+    voiceFirst: "Voice-first",
     lowLiteracy: "Low-literacy friendly",
     support: "English + Rohingya support",
-    title: "A hackathon-ready English coach built for speaking, listening, and confidence.",
-    desc: "This prototype avoids heavy reading and writing. Learners hear a prompt, respond by voice, practice real-life conversations, and review simple vocabulary with clear visual cues.",
+    title: "Sprout",
+    desc: "Designed to help Rohingya speakers confidently navigate everyday English conversations. Sprout avoids heavy reading and writing, offering a seamless, voice-first learning experience.",
     estLevel: "Estimated level",
     estLevelVal: "Beginner A1",
     estLevelHelp: "After 5 spoken prompts",
@@ -150,11 +150,11 @@ export const translations: Record<Language, TranslationContent> = {
     listeningMsg: "Listening...",
   },
   RO: {
-    voiceFirst: "Abaz-foila MVP",
+    voiceFirst: "Abaz-foila",
     lowLiteracy: "Kome foron-lekhon dost",
     support: "English + Rohingya modot",
-    title: "Kotha, hunon ar himmot or laiya banail ekta English hikhon or coach.",
-    desc: "E prototype zeada fora ar lekhar dorkar nai. Hikhoya ekta kotha hunibo, abaz diya jawab dibo, asol zindigi r kotha moshkor goribo, ar asan bhabe vocabulary hikhid fribo.",
+    title: "Sprout",
+    desc: "E app ta bananiya hoise Rohingya manushre Englishot asan bhabe kotha hoite modot koriballa. Zeada lekhaporar dorkar nai, khali abaz diya hani fariba.",
     estLevel: "Bhabar level",
     estLevelVal: "Shuruwal A1",
     estLevelHelp: "5 ta kotha hoar fore",

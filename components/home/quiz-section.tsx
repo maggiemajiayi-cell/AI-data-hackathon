@@ -20,10 +20,10 @@ export function QuizSection({
       <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">
         {t.sec6Tag}
       </p>
-      <h2 className="mt-2 text-3xl font-bold">{t.sec6Title}</h2>
+      <h2 className="mt-2 text-2xl font-bold sm:text-3xl">{t.sec6Title}</h2>
 
       <div className="mt-5 rounded-[1.5rem] bg-slate-950 p-5 text-white">
-        <p className="text-lg font-semibold">{currentQuiz.prompt}</p>
+        <p className="text-base font-semibold sm:text-lg">{currentQuiz.prompt}</p>
         <div className="mt-4 grid gap-3">
           {currentQuiz.options.map((option) => {
             const selected = quizAnswer === option;
