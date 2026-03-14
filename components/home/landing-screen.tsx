@@ -1,3 +1,4 @@
+import { Sprout, RefreshCw } from "lucide-react";
 import type { Language, TranslationContent } from "@/types/app";
 
 interface LandingScreenProps {
@@ -15,18 +16,6 @@ export function LandingScreen({
 }: LandingScreenProps) {
   return (
     <section className="relative flex min-h-[100dvh] items-start justify-center overflow-y-auto px-4 pt-20 pb-6 sm:h-screen sm:items-center sm:overflow-hidden sm:px-6 sm:py-6">
-      <div className="absolute top-4 right-4 z-20">
-        <button
-          type="button"
-          onClick={onToggleLanguage}
-          className="rounded-full border border-slate-300 bg-white/85 px-3 py-2 text-xs font-semibold text-slate-800 shadow-sm sm:px-4 sm:text-sm"
-        >
-          {lang === "EN"
-            ? "Switch to Rohingya Translation"
-            : "Switch to English Translation"}
-        </button>
-      </div>
-
       <div className="w-full max-w-5xl rounded-[2rem] border border-white/60 bg-white/75 p-5 shadow-[0_24px_80px_rgba(111,78,55,0.16)] backdrop-blur sm:p-8 lg:p-12">
         <div className="grid gap-5 sm:gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
           <div className="space-y-5">
@@ -46,12 +35,29 @@ export function LandingScreen({
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-700">
                 SpeakEasy Journey
               </p>
-              <h1 className="max-w-3xl text-3xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+              <h1 className="max-w-3xl flex items-center gap-5 text-3xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+                <div className="relative flex shrink-0 items-center justify-center rounded-full bg-emerald-50 p-4 sm:p-5 text-emerald-600 shadow-lg">
+                  <div className="absolute inset-0 rounded-full border-[3px] border-emerald-200 border-t-emerald-500 border-r-emerald-500 animate-[spin_8s_linear_infinite]" />
+                  <Sprout className="relative z-10 h-10 w-10 sm:h-12 sm:w-12 transition-transform duration-700 hover:scale-110" />
+                </div>
                 {t.title}
               </h1>
               <p className="max-w-2xl text-sm leading-6 text-slate-700 sm:text-lg sm:leading-7">
                 {t.desc}
               </p>
+
+              <div className="pt-4">
+                <button
+                  type="button"
+                  onClick={onToggleLanguage}
+                  className="group flex items-center gap-3 rounded-full border-2 border-emerald-200 bg-white px-6 py-3 text-sm font-bold text-emerald-900 shadow-sm transition hover:bg-emerald-50 hover:border-emerald-300"
+                >
+                  <RefreshCw className="h-5 w-5 transition-transform duration-500 group-hover:rotate-180" />
+                  {lang === "EN"
+                    ? "Translate to Rohingya (RO)"
+                    : "Translate to English (EN)"}
+                </button>
+              </div>
             </div>
           </div>
 

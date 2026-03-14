@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Volume2 } from "lucide-react";
 import type { AssessmentQuestion, TranslationContent } from "@/types/app";
 import { translations } from "@/data/translations";
 
@@ -29,6 +30,22 @@ export function AssessmentSection({
   const displayQuestion = localRohingyaToggle
     ? translations["RO"].assessments[Math.min(assessmentStep, translations["RO"].assessments.length - 1)]
     : activeQuestion;
+
+  const handlePlayAudio = () => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+
+    // Concatenate the prompt and the hint to read out loud
+    const textToRead = `${displayQuestion.prompt} ... ${displayQuestion.hint}`;
+    const utterance = new SpeechSynthesisUtterance(textToRead);
+
+    // Try to affect the accent based on the language (Rohingya might not be heavily supported natively, but we slow down the rate for clarity)
+    utterance.lang = localRohingyaToggle ? "bn-BD" : "en-US";
+    utterance.rate = 0.85;
+    utterance.pitch = 1.1;
+
+    window.speechSynthesis.speak(utterance);
+  };
 
   return (
     <div
@@ -77,15 +94,26 @@ export function AssessmentSection({
               </p>
 
               {!assessmentComplete && (
-                <button
-                  type="button"
-                  onClick={() => setLocalRohingyaToggle(!localRohingyaToggle)}
-                  className="mt-2 text-sm text-amber-300 underline hover:text-amber-400 transition"
-                >
-                  {localRohingyaToggle
-                    ? "Translate back to English"
-                    : "Can't understand? Tap to translate language into Rohingya"}
-                </button>
+                <div className="flex flex-col items-start gap-4">
+                  <button
+                    type="button"
+                    onClick={handlePlayAudio}
+                    className="flex items-center gap-2 rounded-full bg-amber-500/20 px-4 py-2 text-sm font-semibold text-amber-300 transition hover:bg-amber-500/30"
+                  >
+                    <Volume2 className="h-4 w-4" />
+                    Play question audio
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setLocalRohingyaToggle(!localRohingyaToggle)}
+                    className="text-sm text-amber-300 underline transition hover:text-amber-400"
+                  >
+                    {localRohingyaToggle
+                      ? "Translate back to English"
+                      : "Can't understand? Tap to translate language into Rohingya"}
+                  </button>
+                </div>
               )}
             </div>
           )}
