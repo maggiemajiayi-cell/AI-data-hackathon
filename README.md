@@ -1,6 +1,7 @@
 # SpeakEasy (Sprout): Voice-First English Learning MVP
 
 [**👉 Experience the live interactive MVP here on GitHub Pages 👈**](https://maggiemajiayi-cell.github.io/Sprout_voice_input_AItraining/)
+
 Team formation: JiaYi Ma, Tianze Yin, Yuyang Mei, Medha Narumanchi
 
 SpeakEasy is a prototype English coaching application built for a hackathon. It focuses entirely on a **voice-first** user experience tailormade for newcomers and refugees with low literacy. This application avoids heavy reading and writing dependencies, relying instead on spoken AI interactions, simulated environments, and clear visual cues.
